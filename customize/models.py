@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class UpperCaseCharField(models.CharField):
+    """Custom CharField that allows uppercase letters"""
     def get_prep_value(self, value):
         value = super().get_prep_value(value)
 
@@ -16,6 +17,7 @@ class UpperCaseCharField(models.CharField):
 
 
 class PhoneNumberField(models.CharField):
+    """Custom CharField that allows phone numbers"""
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = 13
         super().__init__(*args, **kwargs)
@@ -43,9 +45,9 @@ class PhoneNumberField(models.CharField):
 
 
 class Product(models.Model):
-    name = UpperCaseCharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantity = models.PositiveIntegerField()
+    name: str = UpperCaseCharField(max_length=100)
+    price: float = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity: int = models.PositiveIntegerField()
 
     def __str__(self):
         return f"{self.name}: {self.price}$"
@@ -61,8 +63,8 @@ class Review(models.Model):
         related_name="reviews"
     )
 
-    text = models.TextField()
-    rating = models.PositiveIntegerField()
+    text: str = models.TextField()
+    rating: int = models.PositiveIntegerField()
 
     def __str__(self):
         return f"{self.product.name}: {self.rating}"

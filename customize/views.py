@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
@@ -31,7 +31,7 @@ class ProductListView(ListView):
         return context
 
     
-def register_view(request):
+def register_view(request: HttpRequest) -> HttpResponse:
     """Renders the register page"""
     if request.method == "POST":
         form = RegisterForm(request.POST)
@@ -71,7 +71,7 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [CustomPermission]
 
 
-def expensive_products(request):
+def expensive_products(request: HttpRequest) -> HttpResponse:
     """Renders a list of expensive products"""
     products = Product.objects.raw("""
         SELECT * 
@@ -82,7 +82,7 @@ def expensive_products(request):
     return render(request, "customize/products.html", {"products": products})
 
 
-def stats_view(request):
+def stats_view(request: HttpRequest) -> HttpResponse:
     """Renders the stats page"""
     return JsonResponse({
         "requests_count": get_request_count()
