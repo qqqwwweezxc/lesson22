@@ -1,0 +1,35 @@
+[INFO] 2026-05-17 17:28:25,564 autoreload - Watching for file changes with StatReloader
+[ERROR] 2026-05-17 17:28:27,364 log - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/vitos.burdash/PycharmProjects/CustomizationInDjango/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vitos.burdash/PycharmProjects/CustomizationInDjango/customize/middleware.py", line 33, in __call__
+    _thread_locals.request_count += 1
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_thread._local' object has no attribute 'request_count'
+[ERROR] 2026-05-17 17:28:27,365 log - "GET / HTTP/1.1" 500 57637
+[ERROR] 2026-05-17 17:28:27,472 log - Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/Users/vitos.burdash/PycharmProjects/CustomizationInDjango/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/vitos.burdash/PycharmProjects/CustomizationInDjango/customize/middleware.py", line 33, in __call__
+    _thread_locals.request_count += 1
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_thread._local' object has no attribute 'request_count'
+[ERROR] 2026-05-17 17:28:27,473 log - "GET /favicon.ico HTTP/1.1" 500 57505
+[INFO] 2026-05-17 17:29:47,328 autoreload - /Users/vitos.burdash/PycharmProjects/CustomizationInDjango/customize/middleware.py changed, reloading.
+[INFO] 2026-05-17 17:29:47,624 autoreload - Watching for file changes with StatReloader
+[INFO] 2026-05-17 17:30:02,088 autoreload - /Users/vitos.burdash/PycharmProjects/CustomizationInDjango/customize/middleware.py changed, reloading.
+[INFO] 2026-05-17 17:30:02,293 autoreload - Watching for file changes with StatReloader
+[INFO] 2026-05-17 17:30:15,315 log - "GET / HTTP/1.1" 200 376
+[WARNING] 2026-05-17 17:30:15,353 log - Not Found: /favicon.ico
+[WARNING] 2026-05-17 17:30:15,354 log - "GET /favicon.ico HTTP/1.1" 404 3495
+[INFO] 2026-05-17 17:30:23,382 log - "GET /register/ HTTP/1.1" 200 1902
+[WARNING] 2026-05-17 17:30:23,416 log - Not Found: /favicon.ico
+[WARNING] 2026-05-17 17:30:23,416 log - "GET /favicon.ico HTTP/1.1" 404 3495
+[INFO] 2026-05-17 17:31:03,302 log - "POST /register/ HTTP/1.1" 200 2126
+[WARNING] 2026-05-17 17:31:03,337 log - Not Found: /favicon.ico
+[WARNING] 2026-05-17 17:31:03,337 log - "GET /favicon.ico HTTP/1.1" 404 3495
+[INFO] 2026-05-17 17:31:25,351 autoreload - /Users/vitos.burdash/PycharmProjects/CustomizationInDjango/customize/middleware.py changed, reloading.
+[INFO] 2026-05-17 17:31:25,647 autoreload - Watching for file changes with StatReloader
+[INFO] 2026-05-17 17:31:43,545 autoreload - Watching for file changes with StatReloader

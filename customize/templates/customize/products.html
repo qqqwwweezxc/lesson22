@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+
+<h1>Products list</h1>
+
+{% for product in products %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <h3>{{ product.name }}</h3>
+        <p>Price: {{ product.price }}$</p>
+        <p>Quantity: {{ product.quantity }}</p>
+        <p>Total: {{ product.get_total_value }}$</p>
+    </div>
+{% empty %}
+    <p>No products found</p>
+{% endfor %}
+
+</body>
+</html>
