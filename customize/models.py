@@ -1,7 +1,9 @@
+import re
+
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-import re
-from django.core.exceptions import ValidationError
+
 
 class UpperCaseCharField(models.CharField):
     def get_prep_value(self, value):

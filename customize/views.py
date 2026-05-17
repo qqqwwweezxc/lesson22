@@ -1,14 +1,16 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from rest_framework import generics
+
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter, OrderingFilter
-from django.http import JsonResponse
-from .models import Product
+from rest_framework import generics
+from rest_framework.filters import OrderingFilter, SearchFilter
+
 from .forms import RegisterForm
-from .serializers import ProductSerializer
-from .permissions import CustomPermission
 from .middleware import get_request_count
+from .models import Product
+from .permissions import CustomPermission
+from .serializers import ProductSerializer
 
 
 class ProductListView(ListView):
@@ -40,7 +42,7 @@ def register_view(request):
     else:
         form = RegisterForm()
 
-    return  render(request, "customize/register.html", {"form": form})
+    return render(request, "customize/register.html", {"form": form})
 
 
 class ProductList(generics.ListCreateAPIView):
@@ -73,7 +75,7 @@ def expensive_products(request):
     """Renders a list of expensive products"""
     products = Product.objects.raw("""
         SELECT * 
-        FROM custiomize_product
+        FROM customize_product
         WHERE price * quantity > 1000
     """)
 
