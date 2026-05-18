@@ -45,6 +45,7 @@ class PhoneNumberField(models.CharField):
 
 
 class Product(models.Model):
+    """Custom model for products"""
     name: str = UpperCaseCharField(max_length=100)
     price: float = models.DecimalField(max_digits=10, decimal_places=2)
     quantity: int = models.PositiveIntegerField()
@@ -57,6 +58,7 @@ class Product(models.Model):
 
 
 class Review(models.Model):
+    """Custom model for reviews"""
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
@@ -71,5 +73,6 @@ class Review(models.Model):
 
 
 class CustomUser(AbstractUser):
+    """Custom user model that supports using email instead of username"""
     phone_number = PhoneNumberField()
 

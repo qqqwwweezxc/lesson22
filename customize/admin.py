@@ -7,6 +7,7 @@ from .models import CustomUser
 
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
+    """Register users with custom admin site"""
     list_display = [
         "username",
         "email",
@@ -34,11 +35,13 @@ class CustomUserAdmin(UserAdmin):
 
 
 class ReviewInline(admin.TabularInline):
+    """Inline for reviews"""
     model = Review
     extra = 1
 
 
 class HasInStockFilter(admin.SimpleListFilter):
+    """Filter by in-stock products"""
     title = 'In stock'
     parameter_name = 'in_stock'
 
@@ -58,6 +61,7 @@ class HasInStockFilter(admin.SimpleListFilter):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    """Register model Product with admin site"""
     list_display = ["name", "price", "quantity"]
     search_fields = ["name"]
     list_filter = ["price", HasInStockFilter]
@@ -79,4 +83,5 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
+    """Register model Review with admin site"""
     list_display = ["product", "rating"]

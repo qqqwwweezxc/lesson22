@@ -9,6 +9,7 @@ User = get_user_model()
 
 
 class FancySelect(forms.Select):
+    """Custom Select widget that allows multiple choices."""
     def __init__(self, *args, **kwargs):
         attrs = kwargs.pop("attrs", {})
 
@@ -19,6 +20,7 @@ class FancySelect(forms.Select):
 
 
 class ProductForm(forms.Form):
+    """Custom form for creating new products."""
     name = forms.CharField(validators=[validate_uppercase])
     price = forms.DecimalField(max_digits=10, decimal_places=2)
     quantity = forms.IntegerField(min_value=0)
@@ -33,6 +35,7 @@ class ProductForm(forms.Form):
 
 
 class RegisterForm(UserCreationForm):
+    """Custom form for creating new users."""
     email = forms.EmailField(required=True)
     phone_number = forms.CharField(required=True)
 
